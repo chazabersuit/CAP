@@ -14,16 +14,19 @@ def crear(request):
    # edad= request.POST.get('edad')
    # datos = Prueba(nombre=nombre,edad=edad, fecha_creacion=datetime.now())
    # datos.save()
-   miformulario=Formulario()
+   miformulario1=Formulario()
+   
    if request.method== 'POST':
-      form=Formulario(request.POST)
-      if form.is_valid():
-         data= form.cleaned_data
-         datos=Formulario(nombre=data.get('nombre'),edad=data.get('edad'),fecha_creacion=datetime.now())  
+      miformulario=Formulario(request.POST)
+      
+      if miformulario.is_valid():
+         data= miformulario.cleaned_data
+         datos= Prueba(nombre=data.get('nombre'),edad=data.get('edad'), fecha_creacion=datetime.now())
          datos.save()
-         return render(request,'exito.html', {})
+ 
+         return render(request,'exito.html', {'data':data})
       else:
-         return render(request,'crear.html',{'miformulario':form})
+         return render(request,'crear.html',{'miformulario':miformulario})
       
    
-   return render(request,'crear.html',{'miformulario':miformulario})
+   return render(request,'crear.html',{'miformulario':miformulario1})
