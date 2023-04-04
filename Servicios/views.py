@@ -23,10 +23,15 @@ def crear(request):
          data= miformulario.cleaned_data
          datos= Prueba(nombre=data.get('nombre'),edad=data.get('edad'), fecha_creacion=datetime.now())
          datos.save()
- 
-         return render(request,'exito.html', {'data':data})
+         mensaje='Guardado con exito'
+         datos= Prueba.objects.all()
+         return render(request,'listado.html', {'mensaje':mensaje,'datos':datos})
       else:
          return render(request,'crear.html',{'miformulario':miformulario})
       
    
    return render(request,'crear.html',{'miformulario':miformulario1})
+
+def listado(request):
+   datos= Prueba.objects.all()
+   return render(request,'listado.html',{'datos':datos})
