@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from .forms import Formulario_Alquiler
 
 # Create your views here.
 
 def crear_alquiler(request):
-    mensaje= "hola alta"
-    return render(request,'Alquileres/crear_alquiler.html',{'mensaje':mensaje})
+    formulario_alquiler=Formulario_Alquiler()
+    
+    return render(request,'Alquileres/crear_alquiler.html',{'formulario_alquiler':formulario_alquiler})

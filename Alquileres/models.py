@@ -6,6 +6,8 @@ class Alquileres(models.Model):
     cuit=models.IntegerField()
     direccion=models.CharField(max_length=30)
     inicio_contrato=models.DateField()
+    sector=models.IntegerField()
+    lugar=models.IntegerField()
     
     def __str__(self):
         return self.nombre 

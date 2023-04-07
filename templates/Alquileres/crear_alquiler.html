@@ -1,14 +1,11 @@
 {% extends 'index.html' %}{% load static%} {% block css %}
-<link rel="stylesheet" href="{% static 'css/alquileres/crear_alquileres.css'%}">
-<link rel="stylesheet" href="{% static 'css/base.css'%}"> {% endblock %} {% block title %}alquileres{% endblock %}{% block centro %}
-<h1 class="h1_crear_alquileres">Alta alquileres Nuevo</h1>
+<link rel="stylesheet" href="{% static 'css/alquileres/crear_alquiler.css'%}">
+<link rel="stylesheet" href="{% static 'css/base.css'%}"> {% endblock %} {% block title %}ALQUILER{% endblock %}{% block centro %}
+<h1 class="h1_crear_alquileres">NUEVO ALQUILER</h1>
 
-<div class="crear_alquileres">
-    <form action="{% url 'crear_alquileres'%}">
-        <table>
-            {{formulario_alquileres.as_table}}
-        </table>
+<form action="{ url 'formulario_alquiler'}" method="POST">
+    <table>{{formulario_alquiler.as_table}}</table>
 
-    </form>
-</div>
+</form>
+
 {% endblock%}
