@@ -4,7 +4,7 @@ from django.db import models
 
 #Base de dato
 class Prueba(models.Model):
-    nombre= models.CharField(max_length=30, help_text="ingrese nombre")
+    nombre= models.CharField(max_length=30)
     edad= models.IntegerField()
     fecha_creacion=models.DateField(null=True)
     

@@ -1,0 +1,15 @@
+{% extends 'index.html' %}{% load static%} {% block title %}Servicios{% endblock %}{% block centro %}
+
+
+<p>
+    <form action="{% url 'crear_servicios' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            {{miformulario.as_table}}
+        </table>
+
+        <button>CREAR</button>
+    </form>
+</p>
+
+<a href="{% url 'listado_servicios' %}">Listado</a> {% endblock%}

@@ -1,15 +1,14 @@
 from datetime import datetime
-from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import Formulario
 from .models import Prueba
 
 # Create your views here.
 def inicio (request):
-   
-   return render(request, 'index.html',{})
+   fecha= datetime.now()
+   return render(request, 'index.html',{'fecha':fecha})
 
-def crear(request):
+def crear_servicios(request):
    # nombre= request.POST.get('nombre')
    # edad= request.POST.get('edad')
    # datos = Prueba(nombre=nombre,edad=edad, fecha_creacion=datetime.now())
@@ -25,13 +24,12 @@ def crear(request):
          datos.save()
          mensaje='Guardado con exito'
          datos= Prueba.objects.all()
-         return render(request,'listado.html', {'mensaje':mensaje,'datos':datos})
+         return render(request,'Servicios/listado_servicios.html', {'mensaje':mensaje,'datos':datos})
       else:
-         return render(request,'crear.html',{'miformulario':miformulario})
+         return render(request,'Servicios/crear_servicios.html',{'miformulario':miformulario})
       
-   
-   return render(request,'crear.html',{'miformulario':miformulario1})
+   return render(request,'Servicios/crear_servicios.html',{'miformulario':miformulario1})
 
-def listado(request):
+def listado_servicios(request):
    datos= Prueba.objects.all()
-   return render(request,'listado.html',{'datos':datos})
+   return render(request,'Servicios/listado_servicios.html',{'datos':datos})

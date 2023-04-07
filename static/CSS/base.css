@@ -1,3 +1,8 @@
-h1 {
-    text-align: center;
-}
+    .titulo {
+        text-align: center;
+        color: red
+    }
+    
+    .caja_titulo {
+        margin: 10px;
+    }
