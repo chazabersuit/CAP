@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Servicios',
     'Alquileres',
+    'sesion',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,4 @@ STATICFILES_DIRS= [BASE_DIR / 'static',
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL= 'sesion:login'

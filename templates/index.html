@@ -25,16 +25,17 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" href="{% url 'crear_alquiler'%}">ALQUILER</a>
-                        <a class="nav-link" href="{% url 'crear_servicios'%}" ">SERVICIOS</a>
+                        <a class="nav-link" href="{% url 'crear_servicios'%}">SERVICIOS</a> {% if user.is_authenticated %}
+                        <a class="nav-link" href="{% url 'sesion:logout' %}">CERRAR SESION</a> {% else %}
+                        <a class="nav-link" href="{% url 'sesion:login' %}">INICIAR SESION</a> {% endif %}
+                    </div>
                 </div>
-              </div>
             </div>
-          </nav>
+        </nav>
     </div>
     <p></p>
     <div class="continer centro ">
-        {% block centro %}
-        <h2 class="titulo2 ">Pagina Home</h2>{% endblock %}
+        {% block centro %} {% endblock %}
     </div>
 </body>
 

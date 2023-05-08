@@ -1,0 +1,9 @@
+{% extends 'index.html' %}{% load static%} {% block css %}
+<link rel="stylesheet" href="{% static 'css/alquileres/crear_alquiler.css'%}">
+<link rel="stylesheet" href="{% static 'css/base.css'%}"> {% endblock %} {% block title %}ALQUILER{% endblock %}{% block centro %}
+<h2 class="h1_crear_alquileres">LISTADO</h2>
+
+{% for i in lista%}
+<p>{{i}}</p>
+{% endfor %}
+<button><a href="{% url 'inicio'%}">INICIO</a></button>{% endblock %}

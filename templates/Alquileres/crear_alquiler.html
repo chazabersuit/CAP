@@ -1,11 +1,14 @@
 {% extends 'index.html' %}{% load static%} {% block css %}
 <link rel="stylesheet" href="{% static 'css/alquileres/crear_alquiler.css'%}">
 <link rel="stylesheet" href="{% static 'css/base.css'%}"> {% endblock %} {% block title %}ALQUILER{% endblock %}{% block centro %}
-<h1 class="h1_crear_alquileres">NUEVO ALQUILER</h1>
+<h2 class="h1_crear_alquileres">NUEVO ALQUILER</h2>
 
-<form action="{ url 'formulario_alquiler'}" method="POST">
+<form action="{% url 'crear_alquiler' %}" method="POST">
+    {% csrf_token %}
     <table>{{formulario_alquiler.as_table}}</table>
-
+    <button>ENVIAR</button>
 </form>
-
-{% endblock%}
+<hr> {% for i in lista%}
+<p>{{i}}</p>
+{% endfor %}
+<a href="{% url 'listado_alquiler' %}">Lsitado</a> {% endblock%}
