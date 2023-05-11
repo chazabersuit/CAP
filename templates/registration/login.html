@@ -1,5 +1,6 @@
 {% extends 'index.html' %}{% load static%} {% block title %}INICIAR SESION{% endblock %}{% block centro %} {% if user.is_authenticated %}
-<p>Sesion iniciada como {{user.username}}</p>
+<h1>Bienvenidx</h1>
+<p>{{user.username}}</p>
 {% else %}
 <form action="." method="POST">
     {% csrf_token %}

@@ -1,28 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'index.html' %}{% load static%} {% block title %}INICIAR SESION{% endblock %}{% block centro %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
     <!-- Esto viene de views.crear-->
     <h1>{{mensaje}}</h1>
 
-    <p>Estaba en la base de datos</p>
+    <p>Estos son los datos ingresados:</p>
 
     <ul>{% for datos in datos %}
         <li>
-            {{datos}}
+            {{datos}}: de {{datos.edad}} años
         </li>{% endfor %}
     </ul>
 
-    <button><a href="{% url 'inicio'%}">Inicio</a></button>
+
     <button><a href="{% url 'crear_servicios'%}">CREAR</a></button>
 
-</body>
-
-</html>
+    {% endblock%}

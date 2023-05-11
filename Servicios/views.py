@@ -2,6 +2,7 @@ from datetime import datetime
 from django.shortcuts import render
 from .forms import Formulario
 from .models import Prueba
+from openpyxl import load_workbook
 
 # Create your views here.
 def inicio (request):
@@ -33,3 +34,16 @@ def crear_servicios(request):
 def listado_servicios(request):
    datos= Prueba.objects.all()
    return render(request,'Servicios/listado_servicios.html',{'datos':datos})
+
+def listado_excel(request):
+   archivo_excel=r'C:\Users\CHAZA\Documents\Programacion\CAP\2023.xlsx'
+   
+   libro= load_workbook(archivo_excel)
+   hoja=libro['Hoja1']
+   datos = []
+   
+   for fila in hoja.iter_rows(values_only=True):
+      datos.append(fila)
+   
+   titulo=datos.pop(0)
+   return render(request,'Servicios/listado_excel.html',{'datos':datos,'titulo':titulo})

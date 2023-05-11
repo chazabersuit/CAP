@@ -1,0 +1,47 @@
+{% extends 'index.html' %}{% load static%} 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/Servicios/listado_excel.css'%}">
+    <link rel="stylesheet" href="{% static 'css/base.css'%}"> {% endblock %}
+{% block title %}Excel{% endblock %}{% block centro %}
+
+<div class="container">    
+ <table class="table table-bordered ">
+    <thead class="listado_excel_h1">
+        <tr>
+            <th>{{titulo.2 | slice:"3:"}}</th>
+            <th>{{titulo.11| slice:"3:"}}</th>
+            <th>{{titulo.12| slice:"3:"}}</th>
+            <th>{{titulo.14| slice:"3:"}}</th>
+            <th>{{titulo.15| slice:"3:"}}</th>
+            <th>{{titulo.16| slice:"3:"}}</th>
+            <th>{{titulo.20| slice:"3:"}}</th>
+            <th>{{titulo.21| slice:"3:"}}</th>
+            <th>{{titulo.24| slice:"3:"}}</th>
+            <th>{{titulo.27| slice:"3:"}}</th>
+            <th>{{titulo.28| slice:"3:"}}</th>
+            <th>{{titulo.36| slice:"3:"}}</th>
+            <th class="ultima-columna">{{titulo.37| slice:"3:"}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fila in datos %}
+        <tr class="listado_excel_h1">
+            <td>{{fila.2}}</td>
+            <td>{{fila.11 | date:'d/m/y'}}</td>
+            <td>{{fila.12 | date:'d/m/y'}}</td>
+            <td>{{fila.14}}</td>
+            <td>{{fila.15}}</td>
+            <td>{{fila.16}}</td>
+            <td>${{fila.20 |floatformat:2}}</td>
+            <td>${{fila.21 |floatformat:2}}</td>
+            <td>${{fila.24|floatformat:2}}</td>
+            <td>{{fila.27}}</td>
+            <td>{{fila.28}}</td>
+            <td>{{fila.36}}</td>
+            <td class="ultima-columna">{{fila.37}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+ </table>
+</div>
+    {% endblock%}
