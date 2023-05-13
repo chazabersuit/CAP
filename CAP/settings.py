@@ -58,7 +58,7 @@ ROOT_URLCONF = 'CAP.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\CHAZA\Documents\Programacion\CAP\templates'],
+        'DIRS': [r'C:\Users\CHAZA\Documents\Python\CAP\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +122,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS= [BASE_DIR / 'static',
-                 r'C:\Users\CHAZA\Documents\Programacion\CAP\static',
+                 r'C:\Users\CHAZA\Documents\Python\CAP\static',
                  ]
 
 # Default primary key field type

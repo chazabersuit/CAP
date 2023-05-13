@@ -36,7 +36,7 @@ def listado_servicios(request):
    return render(request,'Servicios/listado_servicios.html',{'datos':datos})
 
 def listado_excel(request):
-   archivo_excel=r'C:\Users\CHAZA\Documents\Programacion\CAP\2023.xlsx'
+   archivo_excel=r'C:\Users\CHAZA\Documents\Python\CAP\2023.xlsx'
    
    libro= load_workbook(archivo_excel)
    hoja=libro['Hoja1']
